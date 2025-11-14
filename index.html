@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Beach Monitoring</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind & DaisyUI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #e6eef8;
+        }
+    </style>
+</head>
+
+<body class="relative lg:min-h-screen flex flex-col items-center justify-center lg:p-4 py-10 text-white">
+
+    <!-- Background video -->
+
+
+    <!-- Dark overlay for readability -->
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+    <!-- Page content -->
+    <div class="relative z-10 flex flex-col items-center">
+
+        <!-- Header -->
+        <div class="text-center mb-10">
+            <h1 class="text-2xl md:text-5xl font-bold mb-2">Real-Time Beach Monitoring</h1>
+            <p class="text-white text-sm md:text-xl">Crystal-clear surveillance, anywhere, anytime</p>
+        </div>
+
+        <!-- Camera Cards -->
+        <div class="flex flex-col justify-center items-center lg:flex-row gap-6 mb-12">
+            <!-- Maui Camera -->
+
+            <div
+                class="card bg1 backdrop-blur-md shadow-xl h-[200px] w-[300px] md:h-[350px] md:w-[550px] lg:h-[300px] lg:w-[500px] hover:scale-105 transition-transform relative">
+                <!-- LIVE Badge -->
+                <div
+                    class="absolute top-10 left-4 badge badge-error bg-red-500 rounded-xl  p-2 py-3 text-white font-bold flex items-center">
+                    <span class="h-3 w-3 bg-white rounded-full mr-2"></span> LIVE
+                </div>
+
+                <!-- Play Button with strong glow and dark bg -->
+                <div class="absolute inset-0 flex justify-center items-center">
+                    <button onclick="openVideoModal('videoModal','rtspFrame','https://rtsp.me/embed/ZbEiaBFG/')"
+                        class="w-20 h-20 flex items-center justify-center rounded-full border-4 border-white text-white text-3xl bg-black/40 animate-pulse-glow hover:scale-110 transition-transform">
+                        ▶
+                    </button>
+                </div>
+
+                <!-- Title -->
+                <div class="top-2 left-4 absolute">
+                    <h2 class="text-lg lg:text-2xl font-bold text-white drop-shadow-lg">Maui Shoreline Camera</h2>
+                </div>
+            </div>
+
+
+            <!-- Bondi Camera -->
+            <div
+                class="card bg2 backdrop-blur-md shadow-xl h-[200px] w-[300px] md:h-[350px] md:w-[550px] lg:h-[300px] lg:w-[500px] hover:scale-105 transition-transform relative">
+
+                <div
+                    class="absolute top-10 left-4 badge badge-error bg-red-500 rounded-xl  p-2 py-3 text-white font-bold flex items-center">
+                    <span class="h-3 w-3 bg-white rounded-full mr-2"></span> LIVE
+                </div>
+                <!-- Play Button with strong glow and dark bg -->
+                <div class="absolute inset-0 flex justify-center items-center">
+                    <button onclick="openVideoModal('videoModal2','rtspFrame2','https://rtsp.me/embed/2rKabTDe/')"
+                        class="w-20 h-20 flex items-center justify-center rounded-full border-4 border-white text-white text-3xl bg-black/40 animate-pulse-glow hover:scale-110 transition-transform">
+                        ▶
+                    </button>
+
+                </div>
+                <div class="top-2 left-4 absolute">
+                    <h2 class="text-lg lg:text-2xl font-bold text-white drop-shadow-lg">Bondi Beach Camera</h2>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Features -->
+
+        <div class="flex flex-col md:flex-row gap-6 text-center mb-5 w-3/5 md:w-4/5 lg:max-w-4xl ">
+            <div class="p-8 bg-gray-50/20 backdrop-blur-lg rounded-2xl md:w-2/3 ">
+                <img class="text-lg w-1/3 mb-2 mx-auto  invert brightness-0" src="img/instagram-live.png" alt="">
+                <h3 class="font-semibold">Live Streaming</h3>
+                <p class="text-gray-200 text-sm">24/7 real-time monitoring</p>
+            </div>
+            <div class="p-8 bg-gray-50/20 backdrop-blur-lg rounded-2xl md:w-2/3">
+                <img class="text-lg w-1/3 mb-2 mx-auto invert brightness-0" src="img/responsive.png" alt="">
+                <h3 class="font-semibold">Responsive Design</h3>
+                <p class="text-gray-300 text-sm">Watch on any device</p>
+            </div>
+            <div class="p-8 bg-gray-50/20 backdrop-blur-lg rounded-2xl md:w-2/3">
+                <img class="text-lg w-1/3 mb-2 mx-auto invert brightness-0" src="img/lighting.png" alt="">
+                <h3 class="font-semibold">High Performance</h3>
+                <p class="text-gray-300 text-sm">Ultra-low latency streams</p>
+            </div>
+        </div>
+
+
+        <!-- Partner Logos -->
+        <div
+            class="relative overflow-hidden  lg:w-full max-w-5xl mx-auto mt-2 lg:my-10 lg:px-5  bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg">
+            <div class="flex gap-5  lg:gap-10  animate-scroll  items-center">
+
+                <img src="img/nike.png" alt="Nike"
+                    class="h-[70px] w-[70px] lg:h-[100px] lg:w-[100px] lg:px-3 sm:px-0 lg:m-0 object-contain invert brightness-0" />
+
+                <div class="flex justify-center items-center gap-2 mx-5 pl-0">
+                    <h2 class="text-xl lg:text-3xl">spotify</h2>
+                    <img src="img/spotify-logo.png" alt="Spotify"
+                        class="h-[50px] w-[50px] lg:h-[50px] lg:w-[50px] object-contain invert brightness-0" />
+                </div>
+
+                <div class="flex justify-center items-center gap-2 mx-5 ml-5 pl-2">
+                    <h2 class="text-xl lg:text-5xl font-bold">AMD</h2>
+                    <img src="img/amd.png" alt="Spotify" class="h-8 w-8 object-contain invert brightness-0" />
+                </div>
+
+                <img src="img/cocacola.png" alt="CocaCola"
+                    class="h-[100px] w-[100px] object-contain invert brightness-0" />
+
+                <img src="img/tesla.png" alt="Tesla"
+                    class="h-[170px] w-[150px] object-contain invert brightness-0 p-0" />
+
+                <img src="img/bmw1.png" alt="" class="h-14 w-14 lg:h-16 lg:w-16 invert brightness-1 p-0 m-0" />
+
+
+                <!-- duplicate logos for seamless loop -->
+                <div class="hidden md:flex gap-5  lg:gap-10   items-center">
+                    <img src="img/nike.png" alt="Nike"
+                        class="h-[70px] w-[70px] lg:h-[100px] lg:w-[100px] lg:px-3 sm:px-0 lg:m-0 object-contain invert brightness-0" />
+
+                    <div class="flex justify-center items-center gap-2 mx-5 pl-0">
+                        <h2 class="text-xl lg:text-3xl">spotify</h2>
+                        <img src="img/spotify-logo.png" alt="Spotify"
+                            class="h-[50px] w-[50px] lg:h-[50px] lg:w-[50px] object-contain invert brightness-0" />
+                    </div>
+
+                    <div class="flex justify-center items-center gap-2 mx-5 ml-5 pl-2">
+                        <h2 class="text-xl lg:text-5xl font-bold">AMD</h2>
+                        <img src="img/amd.png" alt="Spotify" class="h-8 w-8 object-contain invert brightness-0" />
+                    </div>
+
+                    <img src="img/cocacola.png" alt="CocaCola"
+                        class="h-[100px] w-[100px] object-contain invert brightness-0" />
+
+                    <img src="img/tesla.png" alt="Tesla"
+                        class="h-[170px] w-[150px] object-contain invert brightness-0 p-0" />
+
+                    <img src="img/bmw1.png" alt="" class="h-14 w-14 lg:h-16 lg:w-16 invert brightness-1 p-0 m-0" />
+                    <!-- ------------------------------------------------- -->
+                    <img src="img/nike.png" alt="Nike"
+                        class="h-[70px] w-[70px] lg:h-[100px] lg:w-[100px] lg:px-3 sm:px-0 lg:m-0 object-contain invert brightness-0" />
+
+                </div>
+
+                <div class="hidden lg:flex gap-5  lg:gap-10   items-center">
+
+                    <div class="flex justify-center items-center gap-2 mx-5 pl-0">
+                        <h2 class="text-xl lg:text-3xl">spotify</h2>
+                        <img src="img/spotify-logo.png" alt="Spotify"
+                            class="h-[50px] w-[50px] lg:h-[50px] lg:w-[50px] object-contain invert brightness-0" />
+                    </div>
+
+                    <div class="flex justify-center items-center gap-2 mx-5 ml-5 pl-2">
+                        <h2 class="text-xl lg:text-5xl font-bold">AMD</h2>
+                        <img src="img/amd.png" alt="Spotify" class="h-8 w-8 object-contain invert brightness-0" />
+                    </div>
+
+                    <img src="img/cocacola.png" alt="CocaCola"
+                        class="h-[100px] w-[100px] object-contain invert brightness-0" />
+
+                    <img src="img/tesla.png" alt="Tesla"
+                        class="h-[170px] w-[150px] object-contain invert brightness-0 p-0" />
+
+                    <img src="img/nike.png" alt="Nike"
+                        class="h-[70px] w-[70px] lg:h-[100px] lg:w-[100px] lg:px-3 sm:px-0 lg:m-0 object-contain invert brightness-0" />
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer class="mt-8 text-gray-300 text-xs sm:text-sm text-center px-0 m-0 p-0">
+            Powered by <span class="text-white font-semibold">StreamView Technology</span> • Partners & Sponsors
+            worldwide
+        </footer>
+
+    </div>
+
+
+    <!------------ modal and JS ------------>
+    <!-- DaisyUI Modal 1-->
+    <dialog id="videoModal" class="modal backdrop-blur-2xl md:mt-0 pt-0 md:flex justify-center items-center">
+
+        <div
+            class="bg-gray-900 border-2 border-white rounded-2xl scale-100 md:scale-50 lg:scale-100 lg:h-[500px] md:mt-0 pt-0">
+
+            <button
+                class="w-25 absolute right-[-10%] top-[-10%] md:right-[-8%] md:top-[-8%] lg:top-[-5%] lg:right-[-5%] btn btn-sm btn-circle btn-primary  hover:rotate-90 hover:bg-white transition-all duration-300 bg-white  scale-100 md:scale-150 lg:scale-100"
+                onclick="closeVideoModal('videoModal','rtspFrame')">
+                <img class="scale-50 " src="img/close.png" alt="">
+
+            </button>
+
+
+            <!-- Video iframe container -->
+            <div class="">
+                <div class="w-full md:w-[625px]  lg:w-[620px] lg:h-full m-0  p-0 scale-100 rounded-3xl">
+                    <iframe class="rounded-t-2xl h-[170px] md:h-[350px]" id="rtspFrame" width="100%" height="450" src=""
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
+                <!-- Info section -->
+                <div class="m-5 lg:mt-5 lg:p-5 text-white">
+                    <h2 class="font-semibold text-2xl ">Malibu Beach Cam</h2>
+                    <p class="text-sm text-gray-300">California, USA - Pacific Ocean View</p>
+                </div>
+            </div>
+        </div>
+
+    </dialog>
+
+    <!-- DaisyUI Modal 2-->
+
+    <dialog id="videoModal2" class="modal backdrop-blur-2xl md:flex justify-center ">
+
+        <div class="bg-gray-900 border-2 border-white rounded-2xl scale-100 md:scale-50 lg:scale-100 lg:h-[500px]">
+
+            <button
+                class="w-25 absolute right-[-10%] top-[-10%] md:right-[-8%] md:top-[-8%] lg:top-[-5%] lg:right-[-5%] btn btn-sm btn-circle btn-primary  hover:rotate-90 hover:bg-white transition-all duration-300 bg-white  scale-100 md:scale-150 lg:scale-100"
+                onclick="closeVideoModal('videoModal2','rtspFrame2')">
+                <img class="scale-50 " src="img/close.png" alt="">
+
+            </button>
+
+
+            <!-- Video iframe container -->
+            <div class="">
+
+                <div class="w-full md:w-[625px]  lg:w-[620px]  lg:h-full m-0  p-0 scale-100 rounded-3xl">
+                    <iframe id="rtspFrame2" class="rounded-t-2xl h-[170px] md:h-[350px]" id="rtspFrame2" width="100%"
+                        height="450" src="" frameborder="0" allowfullscreen></iframe>
+
+                </div>
+
+
+                <!-- Info section -->
+                <div class=" m-5 lg:mt-5 lg:p-5 text-white">
+                    <h2 class="font-semibold text-lg">Bondi Beach Camera</h2>
+                    <p class="text-sm text-gray-300">Sydney, Australia - Tasman Sea View</p>
+                </div>
+            </div>
+        </div>
+
+    </dialog>
+
+    <script>
+        // Open modal (generic)
+        function openVideoModal(modalId, iframeId, videoUrl) {
+            const modal = document.getElementById(modalId);
+            const player = document.getElementById(iframeId);
+            player.src = videoUrl;
+            modal.showModal();
+        }
+
+        // Close modal (generic)
+        function closeVideoModal(modalId, iframeId) {
+            const modal = document.getElementById(modalId);
+            const player = document.getElementById(iframeId);
+            player.src = '';
+            if (modal) modal.close();
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
